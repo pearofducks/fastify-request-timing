@@ -1,0 +1,28 @@
+{
+  "name": "fastify-request-timing",
+  "version": "1.0.0",
+  "description": "adds an x-response-time header containing the time to complete the request",
+  "main": "index.js",
+  "exports": "./index.js",
+  "type": "module",
+  "scripts": {
+    "test": "node test.js",
+    "preversion": "npm run test",
+    "version": "npm publish --access public",
+    "postversion": "git push --follow-tags"
+  },
+  "devDependencies": {
+    "fastify": "^3.15.1",
+    "got": "^11.8.2",
+    "uvu": "^0.5.1"
+  },
+  "dependencies": {
+    "fastify-plugin": "^3.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/pearofducks/fastify-request-timing"
+  },
+  "author": "Dave Honneffer <pearofducks@gmail.com>",
+  "license": "MIT"
+}
