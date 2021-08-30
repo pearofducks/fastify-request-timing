@@ -11,7 +11,7 @@
   "type": "module",
   "scripts": {
     "test": "node test.js",
-    "preversion": "npm run test",
+    "preversion": "npm run test && npm run build",
     "version": "npm publish --access public",
     "postversion": "git push --follow-tags",
     "build": "rollup -c"
@@ -29,6 +29,10 @@
     "type": "git",
     "url": "https://github.com/pearofducks/fastify-request-timing"
   },
+  "files": [
+    "dist/",
+    "index.js"
+  ],
   "author": "Dave Honneffer <pearofducks@gmail.com>",
   "license": "MIT"
 }
