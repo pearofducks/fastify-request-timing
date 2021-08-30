@@ -1,6 +1,6 @@
 import fp from 'fastify-plugin'
 
-export default fp((fastify, _, done) => {
+export default fp(async fastify => {
   fastify.addHook('onResponse', async (_, reply) => {
     reply.getResponseTime()
   }) // this has to be called in this hook - to enable all the other getResponseTime calls
@@ -8,5 +8,4 @@ export default fp((fastify, _, done) => {
     reply.header('X-Response-Time', reply.getResponseTime())
     return payload
   })
-  done()
 }, { fastify: '3.x', name: 'fastify-response-timing' })

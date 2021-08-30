@@ -2,18 +2,24 @@
   "name": "fastify-request-timing",
   "version": "1.0.1",
   "description": "adds an x-response-time header containing the time to complete the request",
-  "main": "index.js",
-  "exports": "./index.js",
+  "main": "./dist/index.cjs",
+  "module": "./index.js",
+  "exports": {
+    "import": "./index.js",
+    "require": "./dist/index.cjs"
+  },
   "type": "module",
   "scripts": {
     "test": "node test.js",
     "preversion": "npm run test",
     "version": "npm publish --access public",
-    "postversion": "git push --follow-tags"
+    "postversion": "git push --follow-tags",
+    "build": "rollup -c"
   },
   "devDependencies": {
     "fastify": "^3.16.2",
     "got": "^11.8.2",
+    "rollup": "^2.56.3",
     "uvu": "^0.5.1"
   },
   "dependencies": {
