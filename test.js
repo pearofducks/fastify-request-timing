@@ -9,7 +9,7 @@ Plugin.after.each(teardown)
 
 Plugin('adds the x-response-time header', async context => {
   context.server.get('/', (_, reply) => reply.status(204).send())
-  await context.server.listen(0)
+  await context.server.listen({ port: 0 })
   const res = await got.get(addr(context, '/'))
   assert.ok(res.headers['x-response-time'])
 })
@@ -20,7 +20,7 @@ Plugin('has a timing that is realistic', async context => {
     await sleep(requestDuration)
     reply.status(204).send()
   })
-  await context.server.listen(0)
+  await context.server.listen({ port: 0 })
   const res = await got.get(addr(context, '/'))
   assert.ok(res.headers['x-response-time'] > requestDuration)
 })
