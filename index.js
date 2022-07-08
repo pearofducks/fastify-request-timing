@@ -8,4 +8,4 @@ export default fp(async fastify => {
     reply.header('X-Response-Time', reply.getResponseTime())
     return payload
   })
-}, { fastify: '3.x', name: 'fastify-response-timing' })
+}, { fastify: '3.x || 4.x', name: 'fastify-response-timing' })
